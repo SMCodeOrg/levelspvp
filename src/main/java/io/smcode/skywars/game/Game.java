@@ -1,5 +1,6 @@
 package io.smcode.skywars.game;
 
+import io.smcode.skywars.SkyWarsPlugin;
 import io.smcode.skywars.events.PlayerAttemptJoinGameEvent;
 import io.smcode.skywars.events.PlayerJoinGameEvent;
 import io.smcode.skywars.events.PlayerLeaveGameEvent;
@@ -11,10 +12,7 @@ import org.bukkit.configuration.serialization.ConfigurationSerializable;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 @Getter
 public class Game implements ConfigurationSerializable {
@@ -23,16 +21,19 @@ public class Game implements ConfigurationSerializable {
     private final String name;
     private final GameSettings settings;
     private final Set<GamePlayer> players = new HashSet<>();
+    private final Map<GameTeam, Set<GamePlayer>> teams = new HashMap<>();
     @Setter
     private GameLocations locations = new GameLocations();
     @Setter
     private GameState state;
+    private final CountdownTimer countdown;
 
     Game(String name, GameSettings settings) {
         this.id = UUID.randomUUID();
         this.name = name;
         this.settings = settings;
         this.state = GameState.IN_LOBBY;
+        this.countdown = new CountdownTimer(SkyWarsPlugin.getInstance(), 60, this);
     }
 
     void join(Player player) {
@@ -42,6 +43,10 @@ public class Game implements ConfigurationSerializable {
         if (!joinEvent.isCancelled()) {
             this.players.add(new GamePlayer(player));
             Bukkit.getPluginManager().callEvent(new PlayerJoinGameEvent(player, this));
+
+            if (this.players.size() >= this.settings.getMinPlayers() && !this.countdown.isRunning()) {
+                this.countdown.start();
+            }
         }
     }
 
