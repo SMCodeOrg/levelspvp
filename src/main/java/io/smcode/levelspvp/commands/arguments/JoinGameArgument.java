@@ -1,10 +1,10 @@
-package io.smcode.skywars.commands.arguments;
+package io.smcode.levelspvp.commands.arguments;
 
-import io.smcode.skywars.commands.ArgumentExecutor;
-import io.smcode.skywars.config.Message;
-import io.smcode.skywars.config.Messages;
-import io.smcode.skywars.game.Game;
-import io.smcode.skywars.game.GameManager;
+import io.smcode.levelspvp.commands.ArgumentExecutor;
+import io.smcode.levelspvp.config.Message;
+import io.smcode.levelspvp.config.Messages;
+import io.smcode.levelspvp.game.Game;
+import io.smcode.levelspvp.game.GameManager;
 import lombok.RequiredArgsConstructor;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
@@ -20,9 +20,8 @@ public class JoinGameArgument implements ArgumentExecutor {
 
     @Override
     public void execute(Player player, String[] args) {
-        // /skywars join <game>
         if (args.length < 2) {
-            player.sendMessage(messages.getPrefix().append(Component.text("Usage: /skywars join <game>", NamedTextColor.RED)));
+            player.sendMessage(messages.getPrefix().append(Component.text("Usage: /levelspvp join <game>", NamedTextColor.RED)));
             return;
         }
 
@@ -45,6 +44,6 @@ public class JoinGameArgument implements ArgumentExecutor {
 
     @Override
     public String getDescription() {
-        return "Join a game of SkyWars";
+        return "Join a game of LevelsPVP";
     }
 }

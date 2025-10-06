@@ -1,4 +1,4 @@
-package io.smcode.skywars.config;
+package io.smcode.levelspvp.config;
 
 public enum Message {
     GAME_FULL("Game-Full"),

@@ -1,6 +1,6 @@
-package io.smcode.skywars.events;
+package io.smcode.levelspvp.events;
 
-import io.smcode.skywars.game.Game;
+import io.smcode.levelspvp.game.Game;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 

@@ -1,10 +1,10 @@
-package io.smcode.skywars.commands.arguments;
+package io.smcode.levelspvp.commands.arguments;
 
-import io.smcode.skywars.commands.ArgumentExecutor;
-import io.smcode.skywars.config.Message;
-import io.smcode.skywars.config.Messages;
-import io.smcode.skywars.game.Game;
-import io.smcode.skywars.game.GameManager;
+import io.smcode.levelspvp.commands.ArgumentExecutor;
+import io.smcode.levelspvp.config.Message;
+import io.smcode.levelspvp.config.Messages;
+import io.smcode.levelspvp.game.Game;
+import io.smcode.levelspvp.game.GameManager;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
@@ -22,9 +22,8 @@ public class CreateGameArgument implements ArgumentExecutor {
 
     @Override
     public void execute(Player player, String[] args) {
-        // /skywars create <name>
         if (args.length < 2) {
-            player.sendMessage(messages.getPrefix().append(Component.text("Usage: /skywars create <name>", NamedTextColor.RED)));
+            player.sendMessage(messages.getPrefix().append(Component.text("Usage: /levelspvp create <name>", NamedTextColor.RED)));
             return;
         }
 

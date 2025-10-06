@@ -1,4 +1,4 @@
-package io.smcode.skywars.game;
+package io.smcode.levelspvp.game;
 
 import org.bukkit.Location;
 import org.bukkit.configuration.serialization.ConfigurationSerializable;
@@ -6,7 +6,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class GameLocations implements ConfigurationSerializable {
     private Location lobby;

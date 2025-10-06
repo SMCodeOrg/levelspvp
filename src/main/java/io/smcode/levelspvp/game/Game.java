@@ -1,9 +1,9 @@
-package io.smcode.skywars.game;
+package io.smcode.levelspvp.game;
 
-import io.smcode.skywars.SkyWarsPlugin;
-import io.smcode.skywars.events.PlayerAttemptJoinGameEvent;
-import io.smcode.skywars.events.PlayerJoinGameEvent;
-import io.smcode.skywars.events.PlayerLeaveGameEvent;
+import io.smcode.levelspvp.LevelsPlugin;
+import io.smcode.levelspvp.events.PlayerAttemptJoinGameEvent;
+import io.smcode.levelspvp.events.PlayerJoinGameEvent;
+import io.smcode.levelspvp.events.PlayerLeaveGameEvent;
 import lombok.Getter;
 import lombok.Setter;
 import net.kyori.adventure.text.Component;
@@ -33,7 +33,7 @@ public class Game implements ConfigurationSerializable {
         this.name = name;
         this.settings = settings;
         this.state = GameState.IN_LOBBY;
-        this.countdown = new CountdownTimer(SkyWarsPlugin.getInstance(), 60, this);
+        this.countdown = new CountdownTimer(LevelsPlugin.getInstance(), 60, this);
     }
 
     void join(Player player) {
