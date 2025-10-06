@@ -1,6 +1,6 @@
-package io.smcode.skywars.game;
+package io.smcode.levelspvp.game;
 
-import io.smcode.skywars.SkyWarsPlugin;
+import io.smcode.levelspvp.LevelsPlugin;
 import org.bukkit.Location;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
@@ -11,9 +11,9 @@ import java.util.Set;
 
 public class GameManager {
     private final Set<Game> games = new HashSet<>();
-    private final SkyWarsPlugin plugin;
+    private final LevelsPlugin plugin;
 
-    public GameManager(SkyWarsPlugin plugin) {
+    public GameManager(LevelsPlugin plugin) {
         this.plugin = plugin;
     }
 

@@ -1,4 +1,4 @@
-Prefix: "<blue>[SkyWars]<reset>"
+Prefix: "<blue>[LevelsPVP]<reset>"
 Command-Only-For-Players: "<red>Only players can execute this command."
 Game-Created: "<green>New <hover:show_text:'<gameid>'><underlined>game</underlined></hover> has been created."
 Entity-Not-Found: "<red><entity> <yellow><name></yellow> not found."

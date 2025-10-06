@@ -1,11 +1,11 @@
-package io.smcode.skywars.commands;
+package io.smcode.levelspvp.commands;
 
-import io.smcode.skywars.commands.arguments.CreateGameArgument;
-import io.smcode.skywars.commands.arguments.JoinGameArgument;
-import io.smcode.skywars.commands.arguments.SetTeamLocationArgument;
-import io.smcode.skywars.config.Message;
-import io.smcode.skywars.config.Messages;
-import io.smcode.skywars.game.GameManager;
+import io.smcode.levelspvp.commands.arguments.CreateGameArgument;
+import io.smcode.levelspvp.commands.arguments.JoinGameArgument;
+import io.smcode.levelspvp.commands.arguments.SetTeamLocationArgument;
+import io.smcode.levelspvp.config.Message;
+import io.smcode.levelspvp.config.Messages;
+import io.smcode.levelspvp.game.GameManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
@@ -19,13 +19,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SkyWarsCommand implements TabExecutor {
+public class LevelsCommand implements TabExecutor {
     private static final Map<String, ArgumentExecutor> arguments = new HashMap<>();
-    private static final String helpFormat = "<blue>/skywars %s <gray> - %s";
+    private static final String helpFormat = "<blue>/levelspvp %s <gray> - %s";
 
     private final Messages messages;
 
-    public SkyWarsCommand(GameManager manager, Messages messages) {
+    public LevelsCommand(GameManager manager, Messages messages) {
         this.messages = messages;
         arguments.put("create", new CreateGameArgument(messages, manager));
         arguments.put("spawn", new SetTeamLocationArgument(manager, messages));

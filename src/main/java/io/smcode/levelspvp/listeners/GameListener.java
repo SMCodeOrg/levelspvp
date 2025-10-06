@@ -1,12 +1,12 @@
-package io.smcode.skywars.listeners;
+package io.smcode.levelspvp.listeners;
 
-import io.smcode.skywars.config.Message;
-import io.smcode.skywars.config.Messages;
-import io.smcode.skywars.events.AsyncCountDownTickEvent;
-import io.smcode.skywars.events.PlayerAttemptJoinGameEvent;
-import io.smcode.skywars.events.PlayerJoinGameEvent;
-import io.smcode.skywars.events.PlayerLeaveGameEvent;
-import io.smcode.skywars.game.*;
+import io.smcode.levelspvp.config.Message;
+import io.smcode.levelspvp.config.Messages;
+import io.smcode.levelspvp.events.AsyncCountDownTickEvent;
+import io.smcode.levelspvp.events.PlayerAttemptJoinGameEvent;
+import io.smcode.levelspvp.events.PlayerJoinGameEvent;
+import io.smcode.levelspvp.events.PlayerLeaveGameEvent;
+import io.smcode.levelspvp.game.*;
 import lombok.RequiredArgsConstructor;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 import org.bukkit.Location;

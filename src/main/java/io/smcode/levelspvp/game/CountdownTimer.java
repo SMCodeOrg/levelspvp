@@ -1,6 +1,6 @@
-package io.smcode.skywars.game;
+package io.smcode.levelspvp.game;
 
-import io.smcode.skywars.events.AsyncCountDownTickEvent;
+import io.smcode.levelspvp.events.AsyncCountDownTickEvent;
 import lombok.Data;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;

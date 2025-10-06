@@ -1,11 +1,11 @@
-package io.smcode.skywars.commands.arguments;
+package io.smcode.levelspvp.commands.arguments;
 
-import io.smcode.skywars.commands.ArgumentExecutor;
-import io.smcode.skywars.config.Message;
-import io.smcode.skywars.config.Messages;
-import io.smcode.skywars.game.Game;
-import io.smcode.skywars.game.GameManager;
-import io.smcode.skywars.game.GameTeam;
+import io.smcode.levelspvp.commands.ArgumentExecutor;
+import io.smcode.levelspvp.config.Message;
+import io.smcode.levelspvp.config.Messages;
+import io.smcode.levelspvp.game.Game;
+import io.smcode.levelspvp.game.GameManager;
+import io.smcode.levelspvp.game.GameTeam;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 import org.bukkit.entity.Player;
 
@@ -22,9 +22,8 @@ public class SetTeamLocationArgument implements ArgumentExecutor {
 
     @Override
     public void execute(Player player, String[] args) {
-        // /skywars spawn <team>
         if (args.length < 3) {
-            player.sendRichMessage("<red>Usage: /skywars spawn <team> <game>");
+            player.sendRichMessage("<red>Usage: /levelspvp spawn <team> <game>");
             return;
         }
 

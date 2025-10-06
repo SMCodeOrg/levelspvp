@@ -1,4 +1,4 @@
-package io.smcode.skywars.commands;
+package io.smcode.levelspvp.commands;
 
 import org.bukkit.entity.Player;
 

@@ -1,22 +1,20 @@
-package io.smcode.skywars.events;
+package io.smcode.levelspvp.events;
 
-import io.smcode.skywars.game.Game;
+import io.smcode.levelspvp.game.CountdownTimer;
 import lombok.Getter;
-import org.bukkit.entity.Player;
+import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
-import org.bukkit.event.player.PlayerEvent;
 import org.jetbrains.annotations.NotNull;
 
-
-public abstract class GameEvent extends PlayerEvent {
+public class AsyncCountDownTickEvent extends Event {
     private static final HandlerList HANDLER_LIST = new HandlerList();
 
     @Getter
-    private final Game game;
+    private final CountdownTimer timer;
 
-    public GameEvent(@NotNull Player player, Game game) {
-        super(player);
-        this.game = game;
+    public AsyncCountDownTickEvent(CountdownTimer timer) {
+        super(true);
+        this.timer = timer;
     }
 
     @Override

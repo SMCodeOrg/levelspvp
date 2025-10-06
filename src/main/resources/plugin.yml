@@ -1,9 +1,9 @@
-name: SkyWars
+name: LevelsPVP
 version: 1.0
 api-version: 1.13
 author: SMCode
 website: https://smcode.io
-main: io.smcode.skywars.SkyWarsPlugin
+main: io.smcode.levelspvp.LevelsPlugin
 
 commands:
-  skywars:
+  levelspvp:
