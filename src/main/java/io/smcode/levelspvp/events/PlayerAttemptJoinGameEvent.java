@@ -5,7 +5,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;
 import org.jetbrains.annotations.NotNull;
 
-public class PlayerAttemptJoinGameEvent extends GameEvent implements Cancellable {
+public class PlayerAttemptJoinGameEvent extends PlayerGameEvent implements Cancellable {
     private boolean cancelled = false;
 
     public PlayerAttemptJoinGameEvent(@NotNull Player player, Game game) {

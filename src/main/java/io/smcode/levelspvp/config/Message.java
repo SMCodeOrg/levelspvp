@@ -9,6 +9,10 @@ public enum Message {
     GAME_CREATED("Game-Created"),
     ENTITY_NOT_FOUND("Entity-Not-Found"),
     ENTITY_UPDATED("Entity-Updated"),
+    ENTITY_DUPLICATE("Entity-Duplicate"),
+    CONFIG_RELOAD("Config-Reload"),
+    NEXT_LAYER_OPEN("Next-Layer-Open"),
+    ARENA_CREATED("Arena-Created"),
     COUNTDOWN_TIME("Countdown-Timer");
 
     private final String path;

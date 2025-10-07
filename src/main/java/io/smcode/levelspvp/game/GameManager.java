@@ -56,6 +56,7 @@ public class GameManager {
 
     public void loadGames() {
         final ConfigurationSection gameSection = plugin.getConfig().getConfigurationSection("games");
+        this.games.clear();
 
         if (gameSection == null)
             return;

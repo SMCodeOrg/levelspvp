@@ -8,8 +8,10 @@ import lombok.Getter;
 import lombok.Setter;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.configuration.serialization.ConfigurationSerializable;
 import org.bukkit.entity.Player;
+import org.bukkit.util.BoundingBox;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
@@ -27,6 +29,9 @@ public class Game implements ConfigurationSerializable {
     @Setter
     private GameState state;
     private final CountdownTimer countdown;
+    @Getter
+    @Setter
+    private Map<GameTeam, BoundingBox> arenas = new HashMap<>();
 
     Game(String name, GameSettings settings) {
         this.id = UUID.randomUUID();
@@ -71,11 +76,21 @@ public class Game implements ConfigurationSerializable {
                 .anyMatch(p -> p.getUniqueId().equals(player.getUniqueId()));
     }
 
+    public void setArena(GameTeam team, BoundingBox arena) {
+        arenas.put(team, arena);
+    }
+
     public static Game deserialize(Map<String, Object> data) {
         final Game game = new Game(
                 (String) data.get("Name"),
                 (GameSettings) data.get("Game-Settings")
         );
+        final Map<String, BoundingBox> localArenas = data.get("Arenas") == null ? new HashMap<>() : (Map<String, BoundingBox>) data.get("Arenas");
+
+        for (String teamString : localArenas.keySet()) {
+            final GameTeam team = GameTeam.valueOf(teamString);
+            game.setArena(team, localArenas.get(teamString));
+        }
 
         game.setId(UUID.fromString((String) data.get("Id")));
         game.setLocations((GameLocations) data.get("Locations"));
@@ -85,9 +100,16 @@ public class Game implements ConfigurationSerializable {
 
     @Override
     public @NotNull Map<String, Object> serialize() {
+        final Map<String, BoundingBox> localArenas = new HashMap<>();
+
+        for (GameTeam team : getArenas().keySet()) {
+            localArenas.put(team.name(), getArenas().get(team));
+        }
+
         return Map.of(
                 "Id", getId().toString(),
                 "Name", getName(),
+                "Arenas", localArenas,
                 "Game-Settings", getSettings(),
                 "Locations", getLocations()
         );

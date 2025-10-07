@@ -27,7 +27,14 @@ public class CreateGameArgument implements ArgumentExecutor {
             return;
         }
 
-        final Game newGame = manager.createNewGame(player.getLocation(), args[1]);
+        final String gameName = args[1];
+
+        if (manager.getGame(gameName).isPresent()) {
+            player.sendMessage(messages.getMessage(Message.ENTITY_DUPLICATE, Placeholder.unparsed("entity", "Game"), Placeholder.unparsed("name", gameName)));
+            return;
+        }
+
+        final Game newGame = manager.createNewGame(player.getLocation(), gameName);
         player.sendMessage(messages.getMessage(Message.GAME_CREATED, Placeholder.unparsed("gameid", newGame.getId().toString())));
     }
 

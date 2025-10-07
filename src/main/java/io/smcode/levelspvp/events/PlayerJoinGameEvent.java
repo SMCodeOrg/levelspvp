@@ -4,7 +4,7 @@ import io.smcode.levelspvp.game.Game;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-public class PlayerJoinGameEvent extends GameEvent {
+public class PlayerJoinGameEvent extends PlayerGameEvent {
     public PlayerJoinGameEvent(@NotNull Player player, Game game) {
         super(player, game);
     }

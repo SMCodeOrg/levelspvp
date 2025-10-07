@@ -2,17 +2,22 @@ package io.smcode.levelspvp.events;
 
 import io.smcode.levelspvp.game.Game;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import org.bukkit.event.Event;
+import org.bukkit.entity.Player;
 import org.bukkit.event.HandlerList;
+import org.bukkit.event.player.PlayerEvent;
 import org.jetbrains.annotations.NotNull;
 
-@RequiredArgsConstructor
-public class GameEvent extends Event {
+
+public abstract class PlayerGameEvent extends PlayerEvent {
     private static final HandlerList HANDLER_LIST = new HandlerList();
 
     @Getter
     private final Game game;
+
+    public PlayerGameEvent(@NotNull Player player, Game game) {
+        super(player);
+        this.game = game;
+    }
 
     @Override
     public @NotNull HandlerList getHandlers() {

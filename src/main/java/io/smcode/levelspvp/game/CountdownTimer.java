@@ -1,6 +1,7 @@
 package io.smcode.levelspvp.game;
 
 import io.smcode.levelspvp.events.AsyncCountDownTickEvent;
+import io.smcode.levelspvp.events.GameStartedEvent;
 import lombok.Data;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -34,8 +35,10 @@ public class CountdownTimer {
             public void run() {
                 Bukkit.getServer().getPluginManager().callEvent(new AsyncCountDownTickEvent(getHandle()));
 
-                if (seconds <= 0)
+                if (seconds <= 0) {
+                    Bukkit.getScheduler().runTask(plugin, () -> Bukkit.getServer().getPluginManager().callEvent(new GameStartedEvent(game)));
                     cancel();
+                }
 
                 seconds--;
             }

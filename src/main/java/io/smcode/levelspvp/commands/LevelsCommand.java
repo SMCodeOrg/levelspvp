@@ -1,8 +1,7 @@
 package io.smcode.levelspvp.commands;
 
-import io.smcode.levelspvp.commands.arguments.CreateGameArgument;
-import io.smcode.levelspvp.commands.arguments.JoinGameArgument;
-import io.smcode.levelspvp.commands.arguments.SetTeamLocationArgument;
+import io.smcode.levelspvp.LevelsPlugin;
+import io.smcode.levelspvp.commands.arguments.*;
 import io.smcode.levelspvp.config.Message;
 import io.smcode.levelspvp.config.Messages;
 import io.smcode.levelspvp.game.GameManager;
@@ -30,6 +29,8 @@ public class LevelsCommand implements TabExecutor {
         arguments.put("create", new CreateGameArgument(messages, manager));
         arguments.put("spawn", new SetTeamLocationArgument(manager, messages));
         arguments.put("join", new JoinGameArgument(manager, messages));
+        arguments.put("reload", new ReloadArgument(manager, messages));
+        arguments.put("arena", new ArenaArgument(manager, messages, LevelsPlugin.getInstance().getPointsManager()));
     }
 
     @Override
